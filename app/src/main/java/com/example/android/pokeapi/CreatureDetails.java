@@ -4,6 +4,8 @@ import android.graphics.Movie;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ import com.example.android.pokeapi.Models.Creature.Abilities;
 import com.example.android.pokeapi.Models.Creature.Ability;
 import com.example.android.pokeapi.Models.Creature.Creature;
 import com.example.android.pokeapi.Models.Creature.Moves;
+import com.example.android.pokeapi.Utils.UiUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -38,17 +41,40 @@ public class CreatureDetails extends AppCompatActivity {
             mUrl = extras.getString("url");
         }
 
-        int num = getCreatureNumberFromUrl(mUrl);
+        final int num = getCreatureNumberFromUrl(mUrl);
+
+        requestCreatureDetails(num);
+
+        Button reload = (Button)findViewById(R.id.Creature_Details_Reload_Button);
+        reload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestCreatureDetails(num);
+            }
+        });
 
 
+    }
+
+    void requestCreatureDetails(int creatureNum) {
+        UiUtils.controlUi(getParent()
+                ,findViewById(R.id.Creature_Details_ProgressBar)
+                ,findViewById(R.id.Creature_Details_ReloadParent)
+                ,findViewById(R.id.Creature_Details_Content_Parent)
+                ,0);
         ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<Creature> call = apiService.getCreatureDetails(num);
+        Call<Creature> call = apiService.getCreatureDetails(creatureNum);
         call.enqueue(new Callback<Creature>() {
             @Override
             public void onResponse(Call<Creature>call,
                                    Response<Creature> response) {
+                UiUtils.controlUi(getParent()
+                        ,findViewById(R.id.Creature_Details_ProgressBar)
+                        ,findViewById(R.id.Creature_Details_ReloadParent)
+                        ,findViewById(R.id.Creature_Details_Content_Parent)
+                        ,2);
                 // setting creature name
                 //////////////////////////////////////////////////////////////////////
                 TextView name = (TextView) findViewById(R.id.Creature_Details_name_textView);
@@ -92,9 +118,13 @@ public class CreatureDetails extends AppCompatActivity {
             public void onFailure(Call<Creature>call, Throwable t) {
                 Toast.makeText(CreatureDetails.this, "fail", Toast.LENGTH_SHORT).show();
 
+                UiUtils.controlUi(getParent()
+                        ,findViewById(R.id.Creature_Details_ProgressBar)
+                        ,findViewById(R.id.Creature_Details_ReloadParent)
+                        ,findViewById(R.id.Creature_Details_Content_Parent)
+                        ,1);
             }
         });
-
 
     }
 
