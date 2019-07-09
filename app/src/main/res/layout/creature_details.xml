@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="75dp"
+       android:padding="15dp">
+       <TextView
+           android:id="@+id/creature_name_textView"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_centerHorizontal="true"
+           android:background="@color/colorPrimary"
+           android:textColor="@color/colorWhite"
+           android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+           android:text="Bulbasoor"
+           android:textStyle="bold"
+           android:gravity="center"/>
+   </RelativeLayout>
+    <RelativeLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:id="@+id/creature_Image"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"/>
+        <RelativeLayout
+            android:id="@+id/creature_abilities_parent"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/creature_Image">
+            <TextView
+                android:id="@+id/creature_ability_text"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@color/colorPrimary"
+                android:text="Abilities"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"/>
+            <ListView
+                android:layout_below="@+id/creature_ability_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:text="Moves"
+        android:textStyle="bold"
+        android:gravity="center"/>
+    <ListView
+        android:padding="15dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+</LinearLayout>
