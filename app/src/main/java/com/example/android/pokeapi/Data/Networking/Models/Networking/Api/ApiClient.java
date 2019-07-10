@@ -1,4 +1,4 @@
-package com.example.android.pokeapi.Api;
+package com.example.android.pokeapi.Data.Networking.Models.Networking.Api;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

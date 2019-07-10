@@ -1,8 +1,6 @@
-package com.example.android.pokeapi.Models.Creature;
+package com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Creature;
 
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 public class Moves {
 

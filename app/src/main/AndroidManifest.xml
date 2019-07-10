@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreatureDetails"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Base.BaseActivity"></activity>
+        <activity android:name=".CreatureDetails.CreatureDetailsViewImpl" />
+        <activity android:name=".Main.MainViewImpl">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".CreatureDetails">
+    tools:context=".CreatureDetails.CreatureDetailsViewImpl">
 
     <ProgressBar
         android:id="@+id/Creature_Details_ProgressBar"
