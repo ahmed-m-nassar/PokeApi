@@ -1,4 +1,4 @@
-package com.example.android.pokeapi.Main;
+package com.example.android.pokeapi.Main.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.android.pokeapi.CreatureDetails.CreatureDetailsViewImpl;
-import com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Names.Result;
-import com.example.android.pokeapi.Data.Networking.Models.StaticData.CreatureUrl;
+import com.example.android.pokeapi.CreatureDetails.CreatureDetailsActivityImpl;
+import com.example.android.pokeapi.Main.Data.Models.Names.Result;
 import com.example.android.pokeapi.R;
 
 import java.util.List;
@@ -41,13 +40,10 @@ public class NamesAdapter extends ArrayAdapter<Result> {
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CreatureUrl.creatureUrl = Item.getmUrl();
-
-                Intent i = new Intent(mcon, CreatureDetailsViewImpl.class);
+                Intent i = new Intent(mcon, CreatureDetailsActivityImpl.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra("url" , Item.getmUrl());
                 mcon.startActivity(i);
-
-
             }
         });
 

@@ -1,4 +1,4 @@
-package com.example.android.pokeapi.CreatureDetails;
+package com.example.android.pokeapi.CreatureDetails.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

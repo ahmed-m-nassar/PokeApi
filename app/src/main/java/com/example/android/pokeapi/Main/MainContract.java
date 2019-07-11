@@ -1,6 +1,6 @@
 package com.example.android.pokeapi.Main;
 
-import com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Names.Result;
+import com.example.android.pokeapi.Main.Data.Models.Names.Result;
 
 import java.util.ArrayList;
 
@@ -25,6 +25,9 @@ public interface MainContract {
 
     interface MainPresenter {
 
+
+
+
         /**
          * make a network request using retrofit to get the names of the creatures
          */
@@ -38,11 +41,7 @@ public interface MainContract {
         void onReloadClicked();
 
 
-        /**
-         * saves the clicked creature url in CreatureUrl class
-         * @param url url to be saved
-         */
-        void saveCreatureUrl(String url);
+
     }
 
 

@@ -12,8 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Base.BaseActivity"></activity>
-        <activity android:name=".CreatureDetails.CreatureDetailsViewImpl" />
-        <activity android:name=".Main.MainViewImpl">
+        <activity android:name=".CreatureDetails.CreatureDetailsActivityImpl" />
+        <activity android:name=".Main.MainActivityImpl">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

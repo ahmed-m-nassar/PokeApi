@@ -1,16 +1,45 @@
 package com.example.android.pokeapi.CreatureDetails;
 
-import com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Creature.Creature;
+import com.example.android.pokeapi.Main.Data.Models.Names.Result;
+
+import java.util.ArrayList;
 
 public interface CreatureDetailsContract {
 
     interface CreatureDetailsView {
 
         /**
-         * fills the layout with the creature details passed in creature parameters
-         * @param creature contains the details to be filled in the layout
+         * views the creature name received from the network request
+         * @param name
          */
-        void fillCreatureDetails(Creature creature);
+        void viewCreatureName(String name);
+
+
+        /**
+         * views the creature abilities received from the network request
+         * @param abilities
+         */
+        void viewCreatureAbilities(ArrayList<String> abilities);
+
+
+        /**
+         * views the creature moves received from the network request
+         * @param moves
+         */
+        void viewCreatureMoves(ArrayList<String> moves);
+
+
+        /**
+         * views the creature image received from the network request
+         * @param imageUrl
+         */
+        void viewCreatureImage(String imageUrl);
+
+        /**
+         *this function returns the url of the picked creature from last screen
+         * @return
+         */
+        String getCreatureUrl();
 
         /**
          * controls the ui according to the operation
@@ -22,10 +51,13 @@ public interface CreatureDetailsContract {
     }
 
     interface CreatureDetailsPresenter {
+
+
+
         /**
          * make a network request using retrofit to get the details of the creatures
          */
-        void requestCreatureDetails();
+        void requestCreatureDetails(String url);
 
 
         /**
@@ -33,11 +65,5 @@ public interface CreatureDetailsContract {
          */
         void onReloadClicked();
 
-        /**
-         * this method gets the creature number from the url given
-         * @param url the url of the creature
-         * @return the number of the creature
-         */
-         int getCreatureNumFromUrl(String url);
     }
 }

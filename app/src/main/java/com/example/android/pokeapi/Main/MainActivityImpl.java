@@ -4,23 +4,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.android.pokeapi.Data.Networking.Models.Networking.Api.ApiClient;
-import com.example.android.pokeapi.Data.Networking.Models.Networking.Api.ApiInterface;
 import com.example.android.pokeapi.Base.BaseActivity;
-import com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Names.Names;
-import com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Names.Result;
+import com.example.android.pokeapi.Main.Adapters.NamesAdapter;
+import com.example.android.pokeapi.Main.Data.Models.Names.Result;
 import com.example.android.pokeapi.R;
-import com.example.android.pokeapi.Utils.UiUtils;
 
 import java.util.ArrayList;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class MainViewImpl extends BaseActivity implements MainContract.MainView {
+public class MainActivityImpl extends BaseActivity implements MainContract.MainView {
 
     MainPresenterImpl mainPresenter;
 

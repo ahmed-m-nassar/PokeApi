@@ -1,4 +1,4 @@
-package com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Creature;
+package com.example.android.pokeapi.CreatureDetails.Data.Models.Creature;
 
 import com.google.gson.annotations.SerializedName;
 

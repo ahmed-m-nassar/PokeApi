@@ -1,13 +1,10 @@
 package com.example.android.pokeapi.Main;
 
-import android.widget.Toast;
-
 import com.example.android.pokeapi.Base.PresenterBase;
-import com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Names.Names;
-import com.example.android.pokeapi.Data.Networking.Models.Models.Creature.Names.Result;
-import com.example.android.pokeapi.Data.Networking.Models.Networking.Api.ApiClient;
-import com.example.android.pokeapi.Data.Networking.Models.Networking.Api.ApiInterface;
-import com.example.android.pokeapi.Data.Networking.Models.StaticData.CreatureUrl;
+import com.example.android.pokeapi.Main.Data.Cloud.MainService;
+import com.example.android.pokeapi.Main.Data.Models.Names.Names;
+import com.example.android.pokeapi.Main.Data.Models.Names.Result;
+import com.example.android.pokeapi.Base.ApiClient;
 
 import java.util.ArrayList;
 
@@ -19,17 +16,20 @@ public class MainPresenterImpl extends PresenterBase implements MainContract.Mai
     private MainContract.MainView mainView;
 
     public MainPresenterImpl(MainContract.MainView mainView) {
+
         this.mainView = mainView;
     }
+
+
 
     @Override
     public void requestCreaturesNames() {
 
-       //showing progress bar
-       mainView.controlUi(0);
+        //showing progress bar
+        mainView.controlUi(0);
 
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
+        MainService apiService =
+                ApiClient.getClient().create(MainService.class);
 
         Call<Names> call = apiService.getPokemonNames();
         call.enqueue(new Callback<Names>() {
@@ -52,6 +52,7 @@ public class MainPresenterImpl extends PresenterBase implements MainContract.Mai
         });
 
 
+
     }
 
     @Override
@@ -59,8 +60,6 @@ public class MainPresenterImpl extends PresenterBase implements MainContract.Mai
         requestCreaturesNames();
     }
 
-    @Override
-    public void saveCreatureUrl(String url) {
-        CreatureUrl.creatureUrl = url;
-    }
+
+
 }
